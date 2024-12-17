@@ -1,0 +1,44 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="com.flight.flightodata.controller.Overview">
+    <Page title="Flight Overview">
+        <Table items="{/FlightCollection}">
+            <headerToolbar>
+                <Toolbar>
+                    <Title text="Flights"/>
+                </Toolbar>
+            </headerToolbar>
+            <columns>
+                <Column>
+                    <Text text="Carrier ID"/>
+                </Column>
+                <Column>
+                    <Text text="Connection ID"/>
+                </Column>
+                <Column>
+                    <Text text="Flight Date"/>
+                </Column>
+            </columns>
+            <items>
+                <ColumnListItem type="Navigation" press="onItemPress">
+                    <cells>
+                        <Text text="{carrid}"/>
+                        <Text text="{connid}"/>
+                        <Text text="{fldate}"/>
+                    </cells>
+                </ColumnListItem>
+            </items>
+        </Table>
+        <Text text="{/FlightCollection/1/fldate}"/>
+        <Text text=" FlightCollection "/>
+        <List
+        items="{/FlightCollection}"
+        itemPress=".onItemPress">
+        <items>
+            <ObjectListItem
+                title="{carrid}"
+                number="{connid}"
+                numberUnit="{fldate}" />
+        </items>
+    </List> 
+
+    </Page>
+</mvc:View>

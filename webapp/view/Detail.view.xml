@@ -1,0 +1,38 @@
+
+<mvc:View
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    controllerName="com.flight.flightodata.controller.Detail">
+      <Page title="Flight Details">
+        <content>
+           <VBox>
+                <Text text="{flightDetails>/carrid}" />
+                <Text text="carrid" />
+                <Text text="{connid}" />
+                <Text text="{path: 'fldate',formatter: '.formatter.formatDate'}" />  
+                <Text text="{FlightCarrier/carrname}" />
+                <List
+                    headerText="Flight Bookings">
+                    <items>
+                        <ObjectListItem
+                            title="{flightBookings/bookid}"
+                            number="{flightBookings/customid}"
+                            numberUnit="{flightBookings/custtype}" />
+                    </items>
+                </List>
+            </VBox> 
+            <List items="{flightDetails>/flightBookings/results}">
+            <items>
+                <CustomListItem>
+                <VBox>
+                    <ObjectAttribute title="Booking ID" text="{flightDetails>bookid}" />
+                    <ObjectAttribute title="Passenger Name" text="{flightDetails>PASSNAME}" />
+                    <ObjectAttribute title="Class" text="{flightDetails>CLASS}" />
+                </VBox>
+                </CustomListItem>
+            </items>
+            </List>
+
+        </content>
+    </Page>  
+</mvc:View>
