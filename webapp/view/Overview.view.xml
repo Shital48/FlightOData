@@ -22,7 +22,8 @@
                     <cells>
                         <Text text="{carrid}"/>
                         <Text text="{connid}"/>
-                        <Text text="{fldate}"/>
+                        <Text text="{path: 'fldate',formatter: '.formatDate' }"/>
+                        
                     </cells>
                 </ColumnListItem>
             </items>
@@ -38,7 +39,7 @@
                 number="{connid}"
                 numberUnit="{fldate}" />
         </items>
-    </List> 
+        </List> 
 
     </Page>
 </mvc:View>

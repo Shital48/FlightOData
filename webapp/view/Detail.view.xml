@@ -2,25 +2,59 @@
 <mvc:View
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
     controllerName="com.flight.flightodata.controller.Detail">
       <Page title="Flight Details">
         <content>
-           <VBox>
-                <Text text="{flightDetails>/carrid}" />
-                <Text text="carrid" />
-                <Text text="{connid}" />
-                <Text text="{path: 'fldate',formatter: '.formatter.formatDate'}" />  
-                <Text text="{FlightCarrier/carrname}" />
-                <List
-                    headerText="Flight Bookings">
-                    <items>
-                        <ObjectListItem
-                            title="{flightBookings/bookid}"
-                            number="{flightBookings/customid}"
-                            numberUnit="{flightBookings/custtype}" />
-                    </items>
-                </List>
-            </VBox> 
+           <!--<VBox>
+                 <Text text="Carrier ID: {carrid}" />
+      <Text text="Connection ID: {connid}" />
+      <Text text="Flight Date: {fldate}" />
+      
+      <Text text="Flight Bookings" />
+      <Table items="{
+        path: 'flightBookings'
+      }">
+        <columns>
+          <Column>
+            <Text text="Booking ID" />
+          </Column>
+          <Column>
+            <Text text="Passenger Name" />
+          </Column>
+        </columns>
+        <items>
+          <ColumnListItem>
+            <cells>
+              <Text text="{bookingid}" />
+              <Text text="{passengerName}" />
+            </cells>
+          </ColumnListItem>
+        </items>
+      </Table>
+
+      <Text text="Flight Carrier" />
+      <Table items="{
+        path: 'FlightCarrier'
+      }">
+        <columns>
+          <Column>
+            <Text text="Carrier Name" />
+          </Column>
+          <Column>
+            <Text text="Carrier Address" />
+          </Column>
+        </columns>
+        <items>
+          <ColumnListItem>
+            <cells>
+              <Text text="{carrierName}" />
+              <Text text="{carrierAddress}" />
+            </cells>
+          </ColumnListItem>
+        </items>
+      </Table>
+    </VBox>
             <List items="{flightDetails>/flightBookings/results}">
             <items>
                 <CustomListItem>
@@ -31,7 +65,32 @@
                 </VBox>
                 </CustomListItem>
             </items>
+            </List> -->
+            <!-- Flight Details -->
+            <Text text="{carrid}" />
+            <Text text="{connid}" />
+            <Text text="{fldate}" />
+
+             <!-- Expanded FlightCarrier --> 
+            <List items="{FlightCarrier/carrierFlights}">
+                 <items>
+                <ObjectListItem
+                    title="{PLANETYPE}"
+                       />
+            </items>
             </List>
+
+
+            <!-- Expanded flightBookings -->
+            <List items="{flightBookings}">
+                 <items>
+                <ObjectListItem
+                    title="{CUSTOMID}"
+                    number="{COUNTER}"  />
+            </items>
+            </List>
+            
+           
 
         </content>
     </Page>  
