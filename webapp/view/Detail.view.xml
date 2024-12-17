@@ -4,68 +4,9 @@
     xmlns="sap.m"
     xmlns:l="sap.ui.layout"
     controllerName="com.flight.flightodata.controller.Detail">
-      <Page title="Flight Details">
-        <content>
-           <!--<VBox>
-                 <Text text="Carrier ID: {carrid}" />
-      <Text text="Connection ID: {connid}" />
-      <Text text="Flight Date: {fldate}" />
-      
-      <Text text="Flight Bookings" />
-      <Table items="{
-        path: 'flightBookings'
-      }">
-        <columns>
-          <Column>
-            <Text text="Booking ID" />
-          </Column>
-          <Column>
-            <Text text="Passenger Name" />
-          </Column>
-        </columns>
-        <items>
-          <ColumnListItem>
-            <cells>
-              <Text text="{bookingid}" />
-              <Text text="{passengerName}" />
-            </cells>
-          </ColumnListItem>
-        </items>
-      </Table>
-
-      <Text text="Flight Carrier" />
-      <Table items="{
-        path: 'FlightCarrier'
-      }">
-        <columns>
-          <Column>
-            <Text text="Carrier Name" />
-          </Column>
-          <Column>
-            <Text text="Carrier Address" />
-          </Column>
-        </columns>
-        <items>
-          <ColumnListItem>
-            <cells>
-              <Text text="{carrierName}" />
-              <Text text="{carrierAddress}" />
-            </cells>
-          </ColumnListItem>
-        </items>
-      </Table>
-    </VBox>
-            <List items="{flightDetails>/flightBookings/results}">
-            <items>
-                <CustomListItem>
-                <VBox>
-                    <ObjectAttribute title="Booking ID" text="{flightDetails>bookid}" />
-                    <ObjectAttribute title="Passenger Name" text="{flightDetails>PASSNAME}" />
-                    <ObjectAttribute title="Class" text="{flightDetails>CLASS}" />
-                </VBox>
-                </CustomListItem>
-            </items>
-            </List> -->
+    <Page title="Flight Details">
+         
+           
             <!-- Flight Details -->
             <Text text="{carrid}" />
             <Text text="{connid}" />
@@ -75,8 +16,7 @@
             <List items="{FlightCarrier/carrierFlights}">
                  <items>
                 <ObjectListItem
-                    title="{PLANETYPE}"
-                       />
+                    title="{PLANETYPE}"/>
             </items>
             </List>
 
@@ -89,9 +29,6 @@
                     number="{COUNTER}"  />
             </items>
             </List>
-            
-           
-
-        </content>
+             
     </Page>  
 </mvc:View>

@@ -1,45 +1,42 @@
 <mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="com.flight.flightodata.controller.Overview">
-    <Page title="Flight Overview">
+    <Page title="Flights Overview" titleAlignment="Center">
         <Table items="{/FlightCollection}">
-            <headerToolbar>
-                <Toolbar>
-                    <Title text="Flights"/>
-                </Toolbar>
-            </headerToolbar>
+             
             <columns>
                 <Column>
                     <Text text="Carrier ID"/>
                 </Column>
                 <Column>
-                    <Text text="Connection ID"/>
+                    <Text text="Currency"/>
                 </Column>
                 <Column>
-                    <Text text="Flight Date"/>
+                    <Text text="Price"/>
                 </Column>
+                <Column>
+                    <Text text="Payment Sum"/>
+                </Column>
+                <Column>
+                    <Text text="Max Seats"/>
+                </Column>
+                <Column>
+                    <Text text="Date"/>
+                </Column>
+                         
+
             </columns>
             <items>
                 <ColumnListItem type="Navigation" press="onItemPress">
                     <cells>
                         <Text text="{carrid}"/>
-                        <Text text="{connid}"/>
+                        <Text text="{CURRENCY}"/>
+                        <Text text="{PRICE}"/>
+                        <Text text="{PAYMENTSUM}"/>
+                        <Text text="{SEATSMAX}"/>
                         <Text text="{path: 'fldate',formatter: '.formatDate' }"/>
                         
                     </cells>
                 </ColumnListItem>
             </items>
-        </Table>
-        <Text text="{/FlightCollection/1/fldate}"/>
-        <Text text=" FlightCollection "/>
-        <List
-        items="{/FlightCollection}"
-        itemPress=".onItemPress">
-        <items>
-            <ObjectListItem
-                title="{carrid}"
-                number="{connid}"
-                numberUnit="{fldate}" />
-        </items>
-        </List> 
-
+        </Table> 
     </Page>
 </mvc:View>

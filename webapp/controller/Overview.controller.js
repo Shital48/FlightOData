@@ -6,15 +6,7 @@ sap.ui.define([
             return Controller.extend("com.flight.flightodata.controller.Overview", {
                 
                 onInit: function () {
-                    this.oDateFormat = DateFormat.getDateTimeInstance({ pattern: "dd/MM/yyyy" }); // Define the desired format
-
-                    // var oRouter = this.getOwnerComponent().getRouter();
-                    // if (oRouter) {
-                    //     // Attach the event after the component initialization is complete
-                    //     oRouter.getRoute("overview").attachPatternMatched(this._onOverviewMatched, this);
-                    //   } else {
-                    //     console.error("Router is not available.");
-                    //   }
+                    this.oDateFormat = DateFormat.getDateTimeInstance({ pattern: "dd/MM/yyyy" });  
                     
                 },
 
