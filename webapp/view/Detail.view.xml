@@ -12,23 +12,47 @@
             <Text text="{connid}" />
             <Text text="{fldate}" />
 
-             <!-- Expanded FlightCarrier --> 
-            <List items="{FlightCarrier/carrierFlights}">
-                 <items>
-                <ObjectListItem
-                    title="{PLANETYPE}"/>
-            </items>
-            </List>
-
-
-            <!-- Expanded flightBookings -->
-            <List items="{flightBookings}">
-                 <items>
-                <ObjectListItem
-                    title="{CUSTOMID}"
-                    number="{COUNTER}"  />
-            </items>
-            </List>
              
+
+             <!-- Header Information -->
+            <ObjectHeader
+                title="Flight Details"
+                number="{PRICE}"
+                numberUnit="USD"
+                intro="{carrid}"
+                responsive="true">
+            </ObjectHeader>
+
+            <IconTabBar id="iconTabBar" select="onTabSelect">
+                        <items>
+                            <IconTabFilter text="Flight Bookings" key="flightBookings" />
+                            <IconTabFilter text="Flight Carrier" key="flightCarrier" />
+                        </items>
+                    </IconTabBar>
+
+                    <!-- Scrollable Container -->
+            <ScrollContainer id="scrollContainer" height="100%" horizontal="false"
+            vertical="true">
+                <VBox>
+
+                      <!-- Content Sections -->
+                    <VBox id="flightBookingsSection" class="sectionSpacing">
+                        <Title text="Flight Bookings" level="H2" />
+                        <List items="{flightBookings}">
+                            <StandardListItem
+                                title="{WUNIT}"
+                                description="Booking ID: {PASSNAME}" />
+                        </List>
+                    </VBox>
+
+                    <VBox id="flightCarrierSection" class="sectionSpacing">
+                        <Title text="Flight Carrier Information" level="H2" />
+                        <Text text="Carrier Name: {FlightCarrier/CARRNAME}" />
+                        <Text text="Carrier Code: {FlightCarrier/CURRCODE}" />
+                    </VBox>
+
+             </VBox>
+            </ScrollContainer>
+ 
     </Page>  
 </mvc:View>
